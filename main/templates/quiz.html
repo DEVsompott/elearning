@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+    {% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap CSS v5.2.1 -->
+    <link rel="stylesheet" href="{% static 'frontend/css/bootstrap-grid.css' %}">
+    <link rel="stylesheet" href="{% static 'frontend/css/bootstrap-grid.rtl.css' %}">
+    <link rel="stylesheet" href="{% static 'frontend/css/bootstrap-reboot.css' %}">
+    <link rel="stylesheet" href="{% static 'frontend/css/bootstrap-reboot.rtl.css' %}">
+    <link rel="stylesheet" href="{% static 'frontend/css/bootstrap-utilities.css' %}">
+    <link rel="stylesheet" href="{% static 'frontend/css/bootstrap-utilities.rtl.css' %}">
+    <link rel="stylesheet" href="{% static 'frontend/css/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'frontend/css/style.css' %}">
+
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun&display=swap" rel="stylesheet">
+
+    <title>แบบทดสอบ</title>
+    
+
+</head>
+
+<body class="bg-success bg-opacity-25" style="font-family: 'Sarabun', sans-serif;">
+
+    <div class="container ">
+        <div class="mb-5 mt-4 pt-lg-3 pb-lg-5 pt-3 pb-5 bg-light shadow">
+            <h1 class="text-center">แบบทดสอบหลังเรียน</h1>
+            <h4 id="result" class="center1 pb-5"></h4>
+            <h4 id="pass" class="center1 pb-5 "></h4>
+            <form id="quizForm" class="ms-3" action="" method="post">
+
+            </form>
+
+            <input class="btn btn-primary center1" type="button" value="ส่งคำตอบ" onclick="checkAnswers()"
+                id="submitBtn">
+        </div>
+    </div>
+
+</body>
+<script src="{% static 'frontend/js/quiz.js' %}"></script>
+
+</html>
