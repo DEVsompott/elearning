@@ -122,7 +122,6 @@ function light(Cvideo) {
             Math.round(percentage) + "%";
           if (percentage === 100) {
             videos[i].watched = true;
-            console.log(videos[0].watched);
             return;
           }
         });
