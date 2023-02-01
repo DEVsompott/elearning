@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="{% static 'frontend/css/bootstrap-utilities.css' %}">
     <link rel="stylesheet" href="{% static 'frontend/css/bootstrap-utilities.rtl.css' %}">
     <link rel="stylesheet" href="{% static 'frontend/css/bootstrap.css' %}">
-    <link rel="stylesheet" href="{% static 'frontend/css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'frontend/css/stylev2.css' %}">
 
 
 
@@ -111,7 +111,7 @@
                                 <video id="videoP" class=" video-js vjs-fluid" controls data-setup='{}'>
                                     <source src="video/1.1 แนะนำเว็บแอปพลิเคชัน อพม.Smart.mp4" type="video/mp4">
                                 </video>
-                                <p id="percentage">0</p>
+                                <p id="percentage" class="hide_percent">0</p>
                                
                             </div>  
                         </div>
@@ -330,16 +330,11 @@
     integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
     </script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-<script src="{% static 'js/bootstrap.bundle.js' %}"></script>
-<script src="{% static 'js/bootstrap.esm.js' %}"></script>
-<script src="{% static 'js/bootstrap.js' %}"></script>
-<script src="{% static 'js/video.js' %}"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-
-<script>
-
-</script>
-
-
+<script src="{% static 'frontend/js/bootstrap.bundle.js' %}"></script>
+<script src="{% static 'frontend/js/bootstrap.esm.js' %}"></script>
+<script src="{% static 'frontend/js/bootstrap.js' %}"></script>
+<script src="{% static 'frontend/js/video.js' %}"></script>
 
 </html>

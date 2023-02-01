@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin</title>
+    <link rel="stylesheet" href="{% static 'frontend/css/bootstrap-grid.css' %}">
+    <link rel="stylesheet" href="{% static 'frontend/css/bootstrap-grid.rtl.css' %}">
+    <link rel="stylesheet" href="{% static 'frontend/css/bootstrap-reboot.css' %}">
+    <link rel="stylesheet" href="{% static 'frontend/css/bootstrap-reboot.rtl.css' %}">
+    <link rel="stylesheet" href="{% static 'frontend/css/bootstrap-utilities.css' %}">
+    <link rel="stylesheet" href="{% static 'frontend/css/bootstrap-utilities.rtl.css' %}">
+    <link rel="stylesheet" href="{% static 'frontend/css/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'frontend/css/stylev2.css' %}">
+</head>
+
+<body>
+
+    <div class="d-flex align-items-start bg-gradient">
+        <div style="height: 100vh; width: 30vh;" class="nav flex-column
+                nav-pills me-3 d-flex flex-shrink-0 p-3 bg-light" id="v-pills-tab" role="tablist"
+            aria-orientation="vertical">
+            <button class="nav-link active" id="v-pills-home-tab" data-bs-toggle="pill" data-bs-target="#v-pills-home"
+                type="button" role="tab" aria-controls="v-pills-home" aria-selected="true">Dashboard</button>
+            <button class="nav-link" id="user-info-tab" data-bs-toggle="pill" data-bs-target="#user-info" type="button"
+                role="tab" aria-controls="user-info" aria-selected="false">user</button>
+            <button class="nav-link" id="video-info-tab" data-bs-toggle="pill" data-bs-target="#video-info"
+                type="button" role="tab" aria-controls="video-info" aria-selected="false">video</button>
+        </div>
+
+
+        <div class="tab-content" id="v-pills-tabContent">
+            <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
+                ...</div>
+
+            <div class="tab-pane fade pt-5 ps-4" id="user-info" role="tabpanel" aria-labelledby="user-info">
+                <div class="d-flex align-items-center mx-auto">
+
+                    <!--filter strat-->
+                    <div>
+                        <p class="text-start" data-bs-toggle="collapse" data-bs-target="#filter" aria-expanded="false"
+                            aria-controls="filter">ตัวกรองค้นหา
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                class="bi bi-caret-down-fill" viewBox="0 0
+                                    16 16">
+                                <path d="M7.247 11.14 2.451 5.658C1.885
+                                        5.013 2.345 4 3.204 4h9.592a1 1 0 0 1
+                                        .753 1.659l-4.796 5.48a1 1 0 0 1-1.506
+                                        0z" />
+                            </svg>
+                        </p>
+                    </div>
+                    <div class="collapse" id="filter">
+                        <form class="row g-3">
+                            <div class="col-md-3">
+                                <label for="inputID" class="form-label">เลขบัตรประชาชน
+                                    :</label>
+                                <input type="number" class="form-control" id="inputID">
+                            </div>
+                            <div class="col-md-2">
+                                <label for="inputPrefix" class="form-label">State</label>
+                                <select id="inputPrefix" class="form-select">
+                                    <option>นาย</option>
+                                    <option>นาง</option>
+                                </select>
+                            </div>
+                            <div class="col-md-3">
+                                <label for="inputName" class="form-label">ชื่อ</label>
+                                <input type="text" class="form-control" id="inputName">
+                            </div>
+                            <div class="col-md-3">
+                                <label for="inputLastname" class="form-label">นามสกุล</label>
+                                <input type="text" class="form-control" id="inputLastname">
+                            </div>
+                            <div class="col-md-2">
+                                <label for="inputZone" class="form-label">ตำบล</label>
+                                <input type="text" class="form-control" id="inputZone">
+                            </div>
+                            <div class="col-md-2">
+                                <label for="inputCanton" class="form-label">อำเภอ</label>
+                                <input type="text" class="form-control" id="inputCanton">
+                            </div>
+                            <div class="col-md-2">
+                                <label for="inputCounty" class="form-label">จังหวัด</label>
+                                <input type="text" class="form-control" id="inputCounty">
+                            </div>
+                            <div class="col-md-2">
+                                <label for="inputPosition" class="form-label">ตำแหน่ง</label>
+                                <input type="text" class="form-control" id="inputPosition">
+                            </div>
+                            <div class="col-md-2">
+                                <label for="inputTel" class="form-label">เบอร์โทร</label>
+                                <input type="text" class="form-control" id="inputTel">
+                            </div>
+
+                            <div class="col-12">
+                                <button type="submit" class="btn
+                                            btn-primary">ค้นหา</button>
+                            </div>
+                        </form>
+                    </div>
+                    <!--filter end-->
+
+                    <!--tabel strat-->
+                </div>
+                <div class="  table-responsive text-center" style="max-width: 1200px;">
+                    <table class="table" id="user-info">
+                        <thead class="table-light">
+                            <tr>
+                                <th scope="col" id="pic">รูปภาพ</th>
+                                <th scope="col" id="ID">เลขบัตรประชาชน</th>
+                                <th scope="col" id="prefix">คำนำหน้า</th>
+                                <th scope="col" id="name">ชื่อ</th>
+                                <th scope="col" id="lastname">นามสกุล</th>
+                                <th scope="col" id="zone">ตำบล</th>
+                                <th scope="col" id="canton">อำเภอ</th>
+                                <th scope="col" id="county">จังหวัด</th>
+                                <th scope="col" id="position">ตำแหน่ง</th>
+                                <th scope="col" id="tel">เบอร์โทร</th>
+                                <th scope="col" id="pregress">ความคืบหน้า</th>
+                                <th scope="col" id="point">คะแนน</th>
+                                <th scope="col" id="edit">แก้ไข</th>
+                                <th scope="col" id="del">ลบ</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th></th>
+                                <th scope="row">1689572568956</th>
+                                <td>นาย</td>
+                                <td>ทองดี</td>
+                                <td>ทองเปลว</td>
+                                <td>ท่าโพธิ์</td>
+                                <td>เมือง</td>
+                                <td>พิษณุโลก</td>
+                                <td>อาสา</td>
+                                <td>032323125</td>
+                                <td>50 %</td>
+                                <td>40</td>
+                                <td>
+                                    <button type="button" class="btn
+                                                btn-success" data-bs-toggle="modal"
+                                        data-bs-target="#editP">แก้ไข</button>
+                                </td>
+                                <td>
+                                    <button type="button" class="btn
+                                                btn-danger">ลบ</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <!--tabel end-->
+
+            <div class="modal fade" id="editP" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="exampleModalLabel">แก้ไขข้อมูล</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <form class="row g-3">
+                                <div class="col-md-3">
+                                    <label for="inputID" class="form-label">เลขบัตรประชาชน
+                                        :</label>
+                                    <input type="number" class="form-control" id="inputID">
+                                </div>
+                                <div class="col-md-2">
+                                    <label for="inputPrefix" class="form-label">State</label>
+                                    <select id="inputPrefix" class="form-select">
+                                        <option>นาย</option>
+                                        <option>นาง</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-3">
+                                    <label for="inputName" class="form-label">ชื่อ</label>
+                                    <input type="text" class="form-control" id="inputName">
+                                </div>
+                                <div class="col-md-3">
+                                    <label for="inputLastname" class="form-label">นามสกุล</label>
+                                    <input type="text" class="form-control" id="inputLastname">
+                                </div>
+                                <div class="col-md-2">
+                                    <label for="inputZone" class="form-label">ตำบล</label>
+                                    <input type="text" class="form-control" id="inputZone">
+                                </div>
+                                <div class="col-md-2">
+                                    <label for="inputCanton" class="form-label">อำเภอ</label>
+                                    <input type="text" class="form-control" id="inputCanton">
+                                </div>
+                                <div class="col-md-2">
+                                    <label for="inputCounty" class="form-label">จังหวัด</label>
+                                    <input type="text" class="form-control" id="inputCounty">
+                                </div>
+                                <div class="col-md-2">
+                                    <label for="inputPosition" class="form-label">ตำแหน่ง</label>
+                                    <input type="text" class="form-control" id="inputPosition">
+                                </div>
+                                <div class="col-md-2">
+                                    <label for="inputTel" class="form-label">เบอร์โทร</label>
+                                    <input type="text" class="form-control" id="inputTel">
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn
+                                        btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="button" class="btn
+                                        btn-primary">Save changes</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--video start-->
+            <div class="tab-pane fade pt-5 ps-5 text-center" id="video-info" role="tabpanel" aria-labelledby="video">
+
+                <div class="row" style="padding-bottom: 20px;">
+                    <div class="col">
+                        <input type="text" class="form-control" id="inputVideo" placeholder="ค้นหาวิดิโอ">
+                    </div>
+
+                </div>
+                <div class="d-flex align-items-center mx-auto">
+                    <table class="table mb-0 " id="user-info">
+                        <thead class="table-light">
+                            <tr>
+                                <th scope="col" id="Vname">ชื่อวิดิโอ</th>
+                                <th scope="col" id="Vviwe">ยอดการเข้าชม</th>
+                                <th scope="col" id="name">จำนวนคนที่ดูทั้งหมด</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">1.แนะนำแอพ</th>
+                                <td>60</td>
+                                <td>50%</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <!--video end-->
+
+            <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">
+                456554542312318</div>
+        </div>
+    </div>
+
+
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+        integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
+        </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <script src="{% static 'frontend/js/bootstrap.bundle.js' %}"></script>
+    <script src="{% static 'frontend/js/bootstrap.esm.js' %}"></script>
+    <script src="{% static 'frontend/js/bootstrap.js' %}"></script>
+</body>
+
+</html>

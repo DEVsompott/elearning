@@ -158,6 +158,17 @@ function checkAnswers() {
   for (var i = 0; i < inputs.length; i++) {
     inputs[i].disabled = true;
   }
+
+
+  $.ajax({
+    url: '/submit_quiz/',
+    type: 'POST',
+    data: {'correctAnswers': correctAnswers},
+    success: function(response) {
+      console.log("ส่งค่าไป data base สำเร็จ");
+    }
+  });
+  
 }
 
 displayQuestions();

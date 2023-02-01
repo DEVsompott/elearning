@@ -122,12 +122,6 @@ function light(Cvideo) {
             Math.round(percentage) + "%";
           if (percentage === 100) {
             videos[i].watched = true;
-            for (let v = 1; v <= 17; v++) {
-  
-              if (videos[v].watched==true) {
-                document.getElementById("videoLink" + [v]).style.color="red";
-              } 
-            }
             return;
           }
         });
