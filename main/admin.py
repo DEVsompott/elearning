@@ -1,4 +1,5 @@
 from django.contrib import admin
-from .models import Point
+from .models import User, VideoDB
 #Register your models here.
-admin.site.register(Point)
+admin.site.register(User)
+admin.site.register(VideoDB)

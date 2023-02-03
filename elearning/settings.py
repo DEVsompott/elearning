@@ -79,9 +79,9 @@ WSGI_APPLICATION = 'elearning.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'mydb',
-        'USER': 'video',
-        'PASSWORD': 'kang2543',
+        'NAME': 'e_db',
+        'USER': 'admin_e',
+        'PASSWORD': 'Few254405',
         'HOST': '127.0.0.1',
         'PORT': '5432',
     }

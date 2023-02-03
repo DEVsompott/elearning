@@ -4,7 +4,7 @@ var videos = [
     id: 1,
     name: "1.1 แนะนำเว็บแอปพลิเคชัน อพม.Smart",
     src: "../static/frontend/video/1.1 แนะนำเว็บแอปพลิเคชัน อพม.Smart.mp4",
-    watched: 1,
+    watched: 0,
   },
   {
     id: 2,
@@ -103,9 +103,15 @@ var videos = [
     watched: 0,
   },
 ];
-
-
-
+window.addEventListener("load", function() {
+    for (let c = 0; c <= 17; c++) {
+      if(videos[c].watched == 0 ){
+        document.getElementById("videoLink" + [c + 1]).style.color = "red";
+      }else{
+        document.getElementById("videoLink" + [c + 1]).style.color = "green";
+      }
+    }
+  });  
 var player = videojs("videoP");
 function light(Cvideo) {
   for (let i = 0; i < videos.length; i++) {
@@ -141,15 +147,8 @@ for (let v = 2; v <= 11; v++) {
     document.getElementById("videoLink" + [v + 2]).style.pointerEvents = "auto";
   }
 }
-window.addEventListener("load", function () {
-  for (let c = 0; c <= 17; c++) {
-    if (!videos[c].watched) {
-      document.getElementById("videoLink" + [c + 1]).style.color = "red";
-    } else {
-      document.getElementById("videoLink" + [c + 1]).style.color = "green";
-    }
-  }
-});
+
+
 function search() {
   // อ่านค่าจาก input ค้นหา
   var input, filter, links, i, txtValue;

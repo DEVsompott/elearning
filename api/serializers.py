@@ -1,7 +1,7 @@
 from rest_framework import serializers
-from main.models import Point
+from main.models import User
 
-class PointSerializer(serializers.ModelSerializer):
+class UserSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Point
+        model = User
         fields = ('__all__')
